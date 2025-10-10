@@ -236,15 +236,13 @@ class civievent_Widget extends WP_Widget {
 				// Set filter params only if they're legit fields or options.
 				if ( is_array( $customFilters ) ) {
 					foreach ( $customFilters as $name => $val ) {
-						if ( 'custom' === $name ) {
+						if ( 'options' === $name ) {
 							foreach ( $val as $option => $optionVal ) {
-								if ( in_array( $option, $okOptions ) ) {
-									switch ( $option ) {
-										case 'limit':
-										case 'offset':
-										case 'sort':
-											$filterParams['options'][ $option ] = $optionVal;
-									}
+								switch ( $option ) {
+									case 'limit':
+									case 'offset':
+									case 'sort':
+										$filterParams['options'][ $option ] = $optionVal;
 								}
 							}
 						} elseif ( array_key_exists( $name, $fields ) && ! array_key_exists( $name, $allCustomDisplayFields ) ) {
