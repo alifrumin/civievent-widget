@@ -137,6 +137,7 @@ class civievent_Widget extends WP_Widget {
 		'custom_display' => '',
 		'custom_filter' => '',
 		'event_type_id' => '',
+		'start_date_offset' => '',
 	);
 
 	/**
@@ -209,6 +210,14 @@ class civievent_Widget extends WP_Widget {
 
 		$fields = $this->getFields();
 
+		// Deal with start date offset
+		$startDate  = new DateTime();
+		if (CRM_Utils_Array::value( 'start_date_offset', $instance )) {
+			$startDateOffset = CRM_Utils_Array::value( 'start_date_offset', $instance );
+			$startDate->modify($startDateOffset);
+		}
+		$startDate->format('Y-m-d');
+
 		$standardDisplay = false;
 		if ( ! empty( $instance['custom_display'] ) && CRM_Utils_Array::value( 'admin_type', $instance ) === 'custom' ) {
 			// Get the custom display params.
@@ -225,7 +234,7 @@ class civievent_Widget extends WP_Widget {
 				// Get custom filters.
 				$customFilters = json_decode( CRM_Utils_Array::value( 'custom_filter', $instance, '' ), true );
 				$filterParams = array(
-					'start_date' => array( '>=' => date( 'Y-m-d' ) ),
+					'start_date' => array( '>=' => $startDate->date ),
 					'is_public' => 1,
 					'options' => array(
 						'sort' => 'start_date ASC',
@@ -564,6 +573,7 @@ HEREDOC;
 		$instance['offset'] = ( ! empty( $new_instance['offset'] ) ) ? intval( strip_tags( $new_instance['offset'] ) ) : 0;
 		$instance['custom_display'] = ( ! empty( $new_instance['custom_display'] ) ) ? $new_instance['custom_display'] : '';
 		$instance['custom_filter'] = ( ! empty( $new_instance['custom_filter'] ) ) ? $new_instance['custom_filter'] : '';
+		$instance['start_date_offset'] = ( ! empty( $new_instance['start_date_offset'] ) ) ? $new_instance['start_date_offset'] : '';
 
 		return $instance;
 	}
