@@ -9,6 +9,10 @@ License URI: http://www.gnu.org/licenses/agpl-3.0.html
 
 Display widgets for CiviCRM events: the next public event or a whole list. Embed widgets as shortcodes, too!
 
+== Update ==
+
+This plugin was built before searchkit and afform. Today, we recommend using searchkit/afform to do this. These tools are included in core civicrm. They are more reliable and flexible than this plugin. To that end we have created an extension that creates two event listings "Upcoming Events" and "Past Events", the readme includes the shortcodes you can use to embed them on a wordpress page: https://github.com/aghstrategies/eventlistings
+
 == Description ==
 
 You can use the CiviEvent widget to add two types of widgets for upcoming public events from CiviCRM.  There's no limit to the number of widgets you can add of either type.  You can include the widgets in the sidebar like normal, or you can include them via shortcodes in the body of your posts.
