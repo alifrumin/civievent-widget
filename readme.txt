@@ -11,7 +11,7 @@ Display widgets for CiviCRM events: the next public event or a whole list. Embed
 
 == Update ==
 
-This plugin was built before searchkit and afform. Today, we recommend using searchkit/afform to do this. These tools are included in core civicrm. They are more reliable and flexible than this plugin. To that end we have created an extension that creates two event listings "Upcoming Events" and "Past Events", the readme includes the shortcodes you can use to embed them on a wordpress page: https://github.com/aghstrategies/eventlistings
+This plugin was built before searchkit and afform. Today, we recommend using searchkit/afform to do this. These tools are included in core civicrm. They are more reliable and flexible than this plugin. To that end we have created an extension that creates two event listings "Upcoming Events" and "Past Events", the readme includes the shortcodes you can use to embed them on a wordpress page: https://github.com/aghstrategies/eventlistings Once installed you can copy and edit these examples to meet your needs.
 
 == Description ==
 
